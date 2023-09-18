@@ -1,8 +1,6 @@
-import React from "react";
-import styles from "./threadtitle.css";
+import React from 'react';
+import styles from './threadtitle.css';
 
-const ThreadTitle = () => {
-  return <h1 className={styles.threadTitle}>Header</h1>
-};
-
-export default ThreadTitle;
+export function ThreadTitle() {
+  return <h1 className={styles.threadTitle}>Reddit mirror</h1>;
+}

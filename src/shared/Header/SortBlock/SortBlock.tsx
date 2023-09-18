@@ -1,10 +1,13 @@
 import React from 'react';
-import styles from "./sortblock.css";
+import { LogoRedditIcon } from '../../Icons/LogoReddit';
+import styles from './sortblock.css';
 
-const SortBlock = () => {
-    return (
-        <div className={styles.sortBlock}>sorting dropdown</div>
-    );
-};
-
-export default SortBlock;
+export function SortBlock() {
+  return (
+    <div className={styles.sortBlock}>
+      <a className={styles.link}>
+        <LogoRedditIcon />
+      </a>
+    </div>
+  );
+}

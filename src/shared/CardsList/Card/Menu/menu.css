@@ -1,6 +1,6 @@
 .menu {
   position: absolute;
-  top: 17px;
+  top: 27px;
   right: 15px;
   padding: 0;
 }
@@ -20,7 +20,7 @@
 
 .dropdown {
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   right: 0;
   top: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 612px) {
   .menu {
     position: relative;
     order: 2;
@@ -50,6 +50,12 @@
   .menuButton {
     align-self: center;
     transform: unset;
+  }
+  .dropdown {
+    top: 30px;
+    right: 50%;
+
+    transform: translateX(50%);
   }
 }
 

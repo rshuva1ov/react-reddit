@@ -13,34 +13,29 @@ button {
   display: flex;
   flex-flow: row wrap;
 }
-
-.card>*,
-.textContent>* {
+.card > *,
+.textContent > * {
   flex: 1 1 100%;
 }
-
-.card>*+* {
+.card > * + * {
   padding: 13px 0 0;
 }
-
 .card:hover h2 a,
 .card:focus-within h2 a {
   color: var(--orange);
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 612px) {
   .card {
     background-color: transparent;
     flex-flow: row nowrap;
     max-height: 107px;
     padding: 0 40px;
   }
-
-  .card>* {
+  .card > * {
     flex: 0 0;
   }
-
-  .card>*+* {
+  .card > * + * {
     padding: 0;
   }
 }
@@ -51,7 +46,6 @@ button {
     max-height: 147px;
     cursor: pointer;
   }
-
   .card:hover,
   .card:focus-within {
     outline: 1px solid var(--grey-demi-dark);

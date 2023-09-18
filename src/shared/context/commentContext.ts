@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-type commentContextType = {
-    value: string;
-    onChange: (value: string) => void;
+interface ICommentContext {
+  value: string;
+  onChange: (value: string) => void;
 }
 
-export const commentContext = React.createContext<commentContextType>({
-    value: '',
-    onChange: () => { },
+export const commentContext = React.createContext<ICommentContext>({
+  value: '',
+  onChange: () => {},
 });

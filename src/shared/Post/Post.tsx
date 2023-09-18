@@ -1,44 +1,65 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ReactDOM from 'react-dom';
+import { useNavigate } from 'react-router-dom';
+
 import { CommentForm } from '../CommentForm';
+import { PostContent } from './CommentList/Comment/PostContent';
+import { CommentList } from './CommentList';
+import { LoaderComments } from '../LoaderComments';
+
 import styles from './post.css';
-import { CommentsList } from '../CommentsList';
+import { usePostData } from '../../hooks/usePostData';
+import { useParams } from 'react-router-dom';
+import { LoaderSpinner } from '../LoaderSpinner';
+import { CommentAdditionalButtons } from '../CommentForm/CommentAdditionalButtons';
 
-interface IPostInterface {
-  onClose?: () => void;
-}
+export function Post() {
+  const navigate = useNavigate();
 
-export function Post(props: IPostInterface) {
+  let { id } = useParams<string>();
+  if (!id) return null;
+
+  const { postData, commentsData } = usePostData(id);
+  const [isSpinner, setIsSpinner] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (postData.subreddit) setIsSpinner(false);
+  }, [postData]);
+
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      if (event.target instanceof Node && !ref.current?.contains(event.target)) {
-        props.onClose?.();
+      if (
+        event.target instanceof Node &&
+        !ref.current?.contains(event.target)
+      ) {
+        navigate('/posts');
       }
     }
+
     document.addEventListener('click', handleClick);
 
     return () => {
       document.removeEventListener('click', handleClick);
-    }
-  }, [])
+    };
+  }, [postData]);
 
-  const node = document.querySelector('#modal_root');
+  const node = document.getElementById('modal_root');
   if (!node) return null;
 
-  return ReactDOM.createPortal((
+  return ReactDOM.createPortal(
+    // ref={ref}
     <div className={styles.modal} ref={ref}>
-      <h2>Следует отметить, что новая модель организационной деятельности поможет</h2>
-
-      <div className={styles.content}>
-        <p>Есть над чем задуматься: тщательные исследования конкурентов представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть ассоциативно распределены по отраслям. Прежде всего, начало повседневной работы по формированию позиции однозначно фиксирует необходимость кластеризации усилий. Но сторонники тоталитаризма в науке и по сей день остаются уделом либералов, которые жаждут быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу.</p>
-        <p>Есть над чем задуматься: тщательные исследования конкурентов представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть ассоциативно распределены по отраслям. Прежде всего, начало повседневной работы по формированию позиции однозначно фиксирует необходимость кластеризации усилий. Но сторонники тоталитаризма в науке и по сей день остаются уделом либералов, которые жаждут быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу.</p>
-        <p>Есть над чем задуматься: тщательные исследования конкурентов представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть ассоциативно распределены по отраслям. Прежде всего, начало повседневной работы по формированию позиции однозначно фиксирует необходимость кластеризации усилий. Но сторонники тоталитаризма в науке и по сей день остаются уделом либералов, которые жаждут быть превращены в посмешище, хотя само их существование приносит несомненную пользу обществу.</p>
+      <h2 className={styles.title}>{postData.title}</h2>
+      <div className={styles.spinnerContainer}>
+        <LoaderSpinner visibleSpinner={isSpinner} />
       </div>
-
-      <CommentForm />
-      <CommentsList />
-    </div>
-  ), node);
+      <PostContent previewLink={postData.url} />
+      <CommentForm userName={postData.subreddit} postId={id} />
+      <LoaderComments />
+      <CommentList postData={commentsData} postId={id} />
+    </div>,
+    node
+  );
 }

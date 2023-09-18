@@ -1,19 +1,41 @@
-import React from "react";
-import styles from "./textContent.css";
-import UserLink from "./UserLink/UserLink";
-import Title from "./Title/Title";
+import React from 'react';
+import { MetaData } from './MetaData';
+import styles from './textcontent.css';
+import { Title } from './Title';
 
-const TextContent = () => {
+interface ITextContent {
+  postId: string;
+  imgLink: string;
+  userName: string;
+  publishedDate: string;
+  title: string;
+  postPermaLink: string;
+  previewLink: string;
+}
+
+export function TextContent({
+  postId,
+  imgLink,
+  userName,
+  publishedDate,
+  title,
+  postPermaLink,
+  previewLink,
+}: ITextContent) {
   return (
     <div className={styles.textContent}>
-      <div className={styles.metaData}>
-        <UserLink />
-        <span className={styles.createdAt}>
-          <span className={styles.publishedLabel}>опубликовано </span>4 часа назад</span>
-      </div>
-      <Title />
+      <MetaData
+        imgLink={imgLink}
+        userName={userName}
+        publishedDate={publishedDate}
+      />
+      <Title
+        postId={postId}
+        title={title}
+        userName={userName}
+        postPermaLink={postPermaLink}
+        previewLink={previewLink}
+      />
     </div>
   );
-};
-
-export default TextContent;
+}

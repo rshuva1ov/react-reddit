@@ -1,31 +1,16 @@
 .textContent {
-  display: flex;
-  flex-flow: row wrap;
 }
 .textContent > * + * {
   padding: 7px 0 0;
 }
 
-.metaData {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  font-size: 10px;
-  line-height: 12px;
-}
-
-.publishedLabel {
-  display: none;
-}
-
-.createdAt,
-.createdAt span {
-  color: var(--grey99);
-}
-
-@media all and (min-width: 1024px) {
+@media all and (min-width: 612px) {
   .textContent {
-    flex-basis: 540px;
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: 100%;
+    flex-shrink: 1;
+    max-width: 540px;
     order: 1;
     margin: 0 0 0 38px;
     flex-flow: column-reverse nowrap;
@@ -34,21 +19,10 @@
   .textContent > * {
     flex: 0 0;
   }
-
-  .metaData {
-    flex-flow: row-reverse nowrap;
-    justify-content: flex-end;
-    font-size: 14px;
-    line-height: 16px;
-  }
-
-  .publishedLabel {
-    display: inline;
-  }
 }
 
 @media all and (min-width: 1540px) {
   .textContent {
-    flex-basis: 672px;
+    max-width: 672px;
   }
 }

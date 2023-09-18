@@ -1,12 +1,10 @@
-import React from "react";
-import styles from "./layout.css";
+import React from 'react';
+import styles from './layout.css';
 
-interface ILayoutProps {
+interface IlayoutProps {
   children?: React.ReactNode;
 }
 
-const Layout = ({children}: ILayoutProps) => {
+export function Layout({ children }: IlayoutProps) {
   return <div className={styles.layout}>{children}</div>;
-};
-
-export default Layout;
+}

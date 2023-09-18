@@ -19,13 +19,6 @@
 - Implemented an endless feed of posts. Loading of new posts is interrupted on every third scroll
 - Used Controlled Components
 
-### Deploy:
-*Due to the new Heroku rules and restrictions for payment from the Russian Federation, the deployment does not work. But I recorded gifs 🙂*
-
-https://react-app-reddit-mirror.herokuapp.com/ 
-
-<img  width="300px" src="https://user-images.githubusercontent.com/95238714/211354474-78d51306-9966-4190-a51f-4cdcc6c83b22.png" >
-
 ### Gifs:
 
 - Authentication

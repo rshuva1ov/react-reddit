@@ -10,8 +10,6 @@ export function Menu() {
   return (
     <div className={styles.menu}>
       <Dropdown
-        // onOpen={() => console.log('open')}
-        // onClose={() => console.log('closed')}
         isOpen={false}
         dropdownContentRootId={'dropdown_root'}
         button={

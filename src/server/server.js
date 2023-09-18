@@ -21,7 +21,7 @@ app.use('/static', express.static('./dist/client'));
 // });
 
 app.get('*', (req, res) => {
-  res.send(indexTemplate(ReactDOM.renderToString(App())));
+  res.send(indexTemplate(ReactDOM.renderToString(App)));
 });
 app.listen(3000, () => {
   console.log('server started on http://localhost:3000/');

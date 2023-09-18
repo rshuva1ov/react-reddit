@@ -1,6 +1,6 @@
-import React, { BaseSyntheticEvent } from 'react';
-import styles from './dropdown.css';
+import React from 'react';
 import { DropdownContent } from './DropdownContent';
+import styles from './dropdown.css';
 
 interface IDropdownProps {
   button: React.ReactNode;
@@ -11,7 +11,7 @@ interface IDropdownProps {
   onClose?: () => void;
 }
 
-const NOOP = () => {};
+const NOOP = () => { };
 
 export function Dropdown({
   button,
@@ -31,9 +31,28 @@ export function Dropdown({
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  const handleClose = () => {
+    setIsDropdownOpen(false);
+  }
+
+  React.useEffect(() => {
+    function handleClick(event: MouseEvent) {
+      if (event.target instanceof Node && !ref.current?.contains(event.target)) {
+        handleClose?.();
+      }
+    }
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    }
+  }, [])
+
   return (
     <div className={styles.container}>
-      <div onClick={handleOpen}>{button}</div>
+      <div onClick={handleOpen} ref={ref}>{button}</div>
       {isDropdownOpen && (
         <DropdownContent
           children={children}

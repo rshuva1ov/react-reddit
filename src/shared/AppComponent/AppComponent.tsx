@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useToken } from '../../hooks/useToken';
 import { CardsList } from '../CardsList';
 import { Content } from '../Content';
 import { Header } from '../Header';
 import { Layout } from '../Layout';
-import { useDispatch } from 'react-redux';
-import { useToken } from '../../hooks/useToken';
-import { BrowserRouter, Navigate } from 'react-router-dom';
-import { Link, Route, Routes } from 'react-router-dom';
 
-import styles from './appcomponent.css';
-import { setToken } from '../../redux/tokenReducer/actions';
-import { Post } from '../Post/Post';
 import { NotFoundPage } from '../NotFoundPage';
+import { Post } from '../Post/Post';
 
 export function AppComponent() {
   const dispatch = useDispatch();

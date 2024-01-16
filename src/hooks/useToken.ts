@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux';
 import { tokenRequestAsync } from '../redux/tokenReducer';
-import { userRequestAsync } from '../redux/userReducer';
 
 export function useToken() {
   const token = useSelector<RootState, string>(

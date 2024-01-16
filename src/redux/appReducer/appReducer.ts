@@ -7,7 +7,7 @@ export const LOADER_DISPLAY_OFF = 'LOADER_DISPLAY_OFF';
 export const LOADER_ERROR_ON = 'LOADER_ERROR_ON';
 export const LOADER_ERROR_OFF = 'LOADER_ERROR_OFF';
 
-const intialState: RootAppState = {
+const initialState: RootAppState = {
   loading: false,
   error: null,
   isError: false,
@@ -20,7 +20,7 @@ export type RootAppState = {
 };
 
 export const appReducer: Reducer<RootAppState> = (
-  state = intialState,
+  state = initialState,
   action
 ) => {
   switch (action.type) {

@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { tokenContext } from '../shared/context/tokenContext';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux';
 import { loaderAppOff, loaderErrorOn } from '../redux/appReducer';
@@ -71,7 +70,6 @@ export function usePostsData(previousAfter: string): IUsePostsData {
       })
       .then((resp) => {
         const postsList = resp.data.data.children;
-        // console.log(resp.data.data.after);
         setData(postsList);
         dispatch(loaderAppOff());
       })

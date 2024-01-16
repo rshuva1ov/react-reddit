@@ -7,19 +7,6 @@ const app = express();
 
 app.use('/static', express.static('./dist/client'));
 
-// app.get('/auth', (req, res) => {
-//   res.send(indexTemplate(ReactDOM.renderToString(App())));
-// });
-// app.get('/', (req, res) => {
-//   res.send(indexTemplate(ReactDOM.renderToString(App())));
-// });
-// app.get('/posts/*/', (req, res) => {
-//   res.send(indexTemplate(ReactDOM.renderToString(App())));
-// });
-// app.get('/posts', (req, res) => {
-//   res.send(indexTemplate(ReactDOM.renderToString(App())));
-// });
-
 app.get('*', (req, res) => {
   res.send(indexTemplate(ReactDOM.renderToString(App)));
 });

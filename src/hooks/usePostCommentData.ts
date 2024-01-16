@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../redux';
 import {
-  loaderCommentsOn,
   loaderCommentsOff,
+  loaderCommentsOn,
 } from '../redux/commentsLoaderReducer';
 
 export type ICommentData = {
@@ -40,7 +40,6 @@ export function useCommentPostData(postId: string, userName: string) {
     },
     kind: 'Listining',
   });
-  // const token = useContext(tokenContext);
   const dispatch = useDispatch();
 
   const token = useSelector<RootState, string>(

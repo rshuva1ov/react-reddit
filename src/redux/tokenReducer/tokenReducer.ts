@@ -2,7 +2,7 @@ import { Reducer } from 'redux';
 
 export const SET_TOKEN = 'SET_TOKEN';
 
-const intialState: RootTokenState = {
+const initialState: RootTokenState = {
   token: '',
 };
 
@@ -11,7 +11,7 @@ export type RootTokenState = {
 };
 
 export const tokenReducer: Reducer<RootTokenState> = (
-  state = intialState,
+  state = initialState,
   action
 ) => {
   switch (action.type) {

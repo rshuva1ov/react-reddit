@@ -1,19 +1,18 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { IPostData, IPostsData, usePostsData } from '../../hooks/usePostsData';
-import { getPublishedTimeFromNow } from '../../modules';
-import { Card } from './Card/Card';
-import styles from './cardslist.css';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../redux';
-import { LoaderSpinner } from '../LoaderSpinner';
 import axios from 'axios';
+import React, { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { IPostData, IPostsData } from '../../hooks/usePostsData';
+import { getPublishedTimeFromNow } from '../../modules';
+import { RootState } from '../../redux';
 import {
   loaderAppOff,
   loaderAppOn,
   loaderErrorOn,
 } from '../../redux/appReducer';
-import { concat } from '../../../webpack.config';
-import { Outlet } from 'react-router-dom';
+import { LoaderSpinner } from '../LoaderSpinner';
+import { Card } from './Card/Card';
+import styles from './cardslist.css';
 
 export function CardsList() {
   const [nextAfter, setNextAfter] = useState<string>('');
@@ -95,7 +94,7 @@ export function CardsList() {
               postId={card.data.id}
               imgLink={
                 card.data.sr_detail.icon_img !== '' &&
-                card.data.sr_detail.icon_img !== undefined
+                  card.data.sr_detail.icon_img !== undefined
                   ? card.data.sr_detail.icon_img
                   : 'https://imageup.ru/img211/4055371/pngwingcom.png'
               }

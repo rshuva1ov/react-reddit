@@ -1,10 +1,10 @@
-import { Action, combineReducers, Reducer } from 'redux';
-import { RootAppState, appReducer } from './appReducer';
+import { combineReducers, Reducer } from 'redux';
+import { appReducer, RootAppState } from './appReducer';
 import {
-  RootCommentsLoaderState,
   commentsLoaderReducer,
+  RootCommentsLoaderState,
 } from './commentsLoaderReducer';
-import { RootCommentsState, commentsReducer } from './commentsReducer';
+import { commentsReducer, RootCommentsState } from './commentsReducer';
 import { RootTokenState, tokenReducer } from './tokenReducer';
 import { RootUserState, userReducer } from './userReducer/userReducer';
 

@@ -1,8 +1,8 @@
-import React, { LegacyRef } from 'react';
+import React from 'react';
 import { KarmaCounter } from '../../../CardsList/Card/Controls/KarmaCounter';
 import { MetaData } from '../../../CardsList/Card/TextContent/MetaData';
-import styles from './comment.css';
 import { CommentReplyList } from './CommentReplyList';
+import styles from './comment.css';
 
 interface IComment {
   author: string;

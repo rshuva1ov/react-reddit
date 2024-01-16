@@ -2,7 +2,6 @@ import axios from 'axios';
 import { Action } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { RootState } from '..';
-import { userRequest } from '../userReducer';
 import { SET_TOKEN } from './tokenReducer';
 
 export function setToken(token: string) {

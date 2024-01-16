@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { hot } from 'react-hot-loader/root';
 import './main.global.css';
 
-import { applyMiddleware, createStore, Middleware } from 'redux';
 import { Provider } from 'react-redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 import { rootReducer } from './redux/rootReducer';
 import { AppComponent } from './shared/AppComponent';
-import thunk from 'redux-thunk';
 
 const store = createStore(
   rootReducer,

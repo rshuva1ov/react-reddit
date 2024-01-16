@@ -1,9 +1,8 @@
-import { useSelector } from 'react-redux';
-import { TailSpin } from 'react-loader-spinner';
-// import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
-import styles from './loaderspinner.css';
 import React from 'react';
+import { TailSpin } from 'react-loader-spinner';
+import { useSelector } from 'react-redux';
 import { RootState } from '../../redux';
+import styles from './loaderspinner.css';
 
 export function LoaderSpinner({ visibleSpinner }: { visibleSpinner: boolean }) {
   const spinner = useSelector<RootState, boolean>(

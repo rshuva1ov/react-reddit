@@ -10,13 +10,13 @@ export type RootCommentsLoaderState = {
   error: null | string;
 };
 
-const intialState: RootCommentsLoaderState = {
+const initialState: RootCommentsLoaderState = {
   loading: true,
   error: null,
 };
 
 export const commentsLoaderReducer: Reducer<RootCommentsLoaderState> = (
-  state = intialState,
+  state = initialState,
   action
 ) => {
   switch (action.type) {

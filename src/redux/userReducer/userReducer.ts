@@ -1,12 +1,12 @@
 import { Reducer } from 'redux';
 import { IUserData } from '../../hooks/useUserData';
 import {
-  UserRequestAction,
-  UserRequestErrorAction,
-  UserRequestSuccessAction,
   USER_REQUEST,
   USER_REQUEST_ERROR,
   USER_REQUEST_SUCCESS,
+  UserRequestAction,
+  UserRequestErrorAction,
+  UserRequestSuccessAction,
 } from './actions';
 
 export type RootUserState = {
@@ -14,7 +14,7 @@ export type RootUserState = {
   data: IUserData;
 };
 
-const intialState: RootUserState = {
+const initialState: RootUserState = {
   loading: false,
   data: {},
 };
@@ -25,7 +25,7 @@ type UserAction =
   | UserRequestErrorAction;
 
 export const userReducer: Reducer<RootUserState, UserAction> = (
-  state = intialState,
+  state = initialState,
   action
 ) => {
   switch (action.type) {

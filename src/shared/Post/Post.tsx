@@ -3,15 +3,14 @@ import ReactDOM from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 
 import { CommentForm } from '../CommentForm';
-import { PostContent } from './CommentList/Comment/PostContent';
-import { CommentList } from './CommentList';
 import { LoaderComments } from '../LoaderComments';
+import { CommentList } from './CommentList';
+import { PostContent } from './CommentList/Comment/PostContent';
 
-import styles from './post.css';
-import { usePostData } from '../../hooks/usePostData';
 import { useParams } from 'react-router-dom';
+import { usePostData } from '../../hooks/usePostData';
 import { LoaderSpinner } from '../LoaderSpinner';
-import { CommentAdditionalButtons } from '../CommentForm/CommentAdditionalButtons';
+import styles from './post.css';
 
 export function Post() {
   const navigate = useNavigate();
@@ -49,7 +48,6 @@ export function Post() {
   if (!node) return null;
 
   return ReactDOM.createPortal(
-    // ref={ref}
     <div className={styles.modal} ref={ref}>
       <h2 className={styles.title}>{postData.title}</h2>
       <div className={styles.spinnerContainer}>

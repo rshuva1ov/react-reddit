@@ -1,4 +1,4 @@
-# Лента лучших постов Reddits <img  width="30px" src="https://user-images.githubusercontent.com/95238714/211356258-9a85b4ee-3b17-44fa-96ca-8950ee852239.png" >
+# Лента лучших постов Reddit <img  width="30px" src="https://user-images.githubusercontent.com/95238714/211356258-9a85b4ee-3b17-44fa-96ca-8950ee852239.png" >
 
 ### Stack:  
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
